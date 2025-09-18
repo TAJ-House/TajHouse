@@ -41,7 +41,7 @@ export default async function HomePage() {
         />
         <meta
           property="og:image"
-          content="https://tajhouse.com/images/"
+          content="/favicon.ico"
         />
 
         {/* Twitter */}
