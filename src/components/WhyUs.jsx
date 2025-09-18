@@ -12,14 +12,22 @@ export default function WhyUs() {
         <div className="w-full text-start lg:w-1/2">
           <p className="text-sm text-gray-600 mb-2">{t("why.0")}</p>
           <h2 className="text-3xl font-bold leading-snug">
-            {t("why.1")}
-            <span className="text-[#0000ff]"> {t("why.2")} </span>
-            <br />
-            {t("why.3")}
+            <span className="text-[#0000ff]"> {t("why.1")} </span>
           </h2>
-          <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-            {t("why.4")}
-          </p>
+          <ul>
+            <li className="mt-4 text-gray-600 text-lg leading-relaxed">
+              {t("why.2")}
+            </li>
+            <li className="mt-4 text-gray-600 text-lg leading-relaxed">
+              {t("why.3")}
+            </li>
+            <li className="mt-4 text-gray-600 text-lg leading-relaxed">
+              {t("why.4")}
+            </li>
+            <li className="mt-4 text-gray-600 text-lg leading-relaxed">
+              {t("why.5")}
+            </li>
+          </ul>
         </div>
 
         {/* Image Section */}

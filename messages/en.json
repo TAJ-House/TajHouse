@@ -22,9 +22,32 @@
       "categories": {
         "all": "All",
         "informational": "Informational Websites",
-        "ecommerce": "E-commerce Stores"
+        "ecommerce": "E-commerce Stores",
+        "app": "Mobile App (IOS & Android)"
+      },
+      "projectstilte": {
+        "1": "Laster",
+        "2": "NR clinics",
+        "3": "Uniwrap",
+        "4": "5 degrees ",
+        "5": "Ruya",
+        "6": "SITC",
+        "7": "Project 7",
+        "8": "Project 8",
+        "9": "Project 9",
+        "10": "Project 10",
+        "11": "Project 11",
+        "12": "Project 12",
+        "13": "Project 13",
+        "14": "Project 14",
+        "15": "Project 15",
+        "16": "Project 16",
+        "17": "Camion",
+        "18": "Fairgrounds",
+        "19": "Abgd Online"
       }
     },
+
     "projects": {
       "title": "Our Work",
       "description": "Because we are the best in the field, just try our performance showcase to see amazing results…",
@@ -87,10 +110,12 @@
     },
     "why": [
       "Why Choose Us?",
-      "We Offer You",
-      "Innovative Software and Marketing",
-      "Solutions...",
-      "We are committed to helping you achieve your digital goals and build a strong market presence. Our team has extensive experience since 2016, enabling us to deliver innovative solutions."
+      "Taj House for Android and iOS Application Development",
+      "An Egyptian company licensed by the Ministry of Communications, specialized in programming and developing mobile applications.",
+      "Over 10 years of experience in designing and developing smartphone applications (iPhone and Android).",
+      "Extensive expertise in creating e-commerce applications and electronic payment solutions.",
+      "Strong experience in implementing applications in the Saudi market for more than 10 years.",
+      "Direct integration and connection with accredited electronic payment companies in Saudi Arabia."
     ],
     "contact": {
       "book": "Book Your Consultation...",
@@ -268,6 +293,7 @@
     "subscribe": "Subscribe",
     "copyright": "Copyright © 2025 Made with love, Taj House. All rights reserved.",
     "whatsapp": "Contact us",
+    "call": "Contact us",
     "subscribing": "Subscribing...",
     "subscribed": "Successfully subscribed",
     "subscribeError": "Subscription failed, please try again",

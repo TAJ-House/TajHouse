@@ -10,104 +10,123 @@ export default function ProjectsGallery() {
     // t("categories.all"),
     t("categories.informational"),
     t("categories.ecommerce"),
+    t("categories.app"),
   ];
 
   const projects = [
     {
       id: 1,
-      title: "مشروع 1",
+      title: t("projectstilte.1"),
       category: t("categories.informational"),
-      image: "/assets/images/project-1.avif",
+      image: "/assets/images/screencapture-tajhouse-luster-2025-09-18-23_04_45.png",
     },
     {
       id: 2,
-      title: "مشروع 2",
+      title: t("projectstilte.2"),
       category: t("categories.informational"),
-      image: "/assets/images/project-2.avif",
+      image: "/assets/images/screencapture-tajhouse-nr-clinics-2025-09-18-23_04_18.png",
     },
     {
       id: 3,
-      title: "مشروع 3",
+      title: t("projectstilte.3"),
       category: t("categories.informational"),
-      image: "/assets/images/project-3.avif",
+      image: "/assets/images/screencapture-tajhouse-pro-uniwrap-2025-09-18-23_01_06.png",
     },
     {
       id: 4,
-      title: "مشروع 4",
+      title: t("projectstilte.4"),
       category: t("categories.informational"),
-      image: "/assets/images/project-4.avif",
+      image: "/assets/images/screencapture-tajhouse-pro-5degrees-2025-09-18-23_07_42.png",
     },
     {
       id: 5,
-      title: "مشروع 5",
-      category: t("categories.informational"),
-      image: "/assets/images/project-5.avif",
+      title: t("projectstilte.5"),
+      category: t("categories.ecommerce"),
+      image: "/assets/images/screencapture-ruya-eg-org-2025-09-18-23_03_53.png",
     },
     {
       id: 6,
-      title: "مشروع 6",
+      title: t("projectstilte.6"),
       category: t("categories.informational"),
-      image: "/assets/images/project-6.avif",
+      image: "/assets/images/screencapture-sitc-eg-org-en-homepage-3-2025-09-18-23_04_05.png",
     },
     {
       id: 7,
-      title: "مشروع 7",
+      title: t("projectstilte.7"),
       category: t("categories.informational"),
       image: "/assets/images/project-7.avif",
     },
     {
       id: 8,
-      title: "مشروع 8",
+      title: t("projectstilte.8"),
       category: t("categories.informational"),
       image: "/assets/images/project-8.avif",
     },
     {
       id: 9,
-      title: "مشروع 9",
+      title: t("projectstilte.9"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-9.avif",
     },
     {
       id: 10,
-      title: "مشروع 10",
+      title: t("projectstilte.10"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-10.avif",
     },
     {
       id: 11,
-      title: "مشروع 11",
+      title: t("projectstilte.11"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-11.avif",
     },
     {
       id: 12,
-      title: "مشروع 12",
+      title: t("projectstilte.12"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-12.avif",
     },
     {
       id: 13,
-      title: "مشروع 13",
+      title: t("projectstilte.13"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-13.avif",
     },
     {
       id: 14,
-      title: "مشروع 14",
+      title: t("projectstilte.14"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-14.avif",
     },
     {
       id: 15,
-      title: "مشروع 15",
+      title: t("projectstilte.15"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-15.avif",
     },
     {
       id: 16,
-      title: "16",
+      title: t("projectstilte.16"),
       category: t("categories.ecommerce"),
       image: "/assets/images/project-16.webp",
+    },
+    {
+      id: 17,
+      title: t("projectstilte.17"),
+      category: t("categories.app"),
+      image: "/assets/images/WhatsApp Image 2025-09-18 at 13.00.28 (3).jpeg",
+    },
+    {
+      id: 18,
+      title: t("projectstilte.18"),
+      category: t("categories.app"),
+      image: "/assets/images/WhatsApp Image 2025-09-18 at 13.00.28.jpeg",
+    },
+    {
+      id: 19,
+      title: t("projectstilte.19"),
+      category: t("categories.app"),
+      image: "/assets/images/WhatsApp Image 2025-09-18 at 13.02.34.jpeg",
     },
   ];
 
@@ -177,17 +196,24 @@ export default function ProjectsGallery() {
                   width={400}
                   height={1200}
                   className={`w-full h-auto block object-cover transition-transform duration-[3000ms] ease-in-out
-                    ${
-                      isActive
-                        ? project.id === 1
-                          ? "translate-y-[-50px]"
-                          : "translate-y-[-150px]"
-                        : project.id === 1
-                        ? "group-hover:translate-y-[-100px]"
-                        : "group-hover:translate-y-[-300px]"
-                    }
-                  `}
+        ${
+          isActive
+            ? project.id === 1
+              ? "translate-y-[-50px]"
+              : "translate-y-[-150px]"
+            : project.id === 1
+            ? "group-hover:translate-y-[-100px]"
+            : "group-hover:translate-y-[-300px]"
+        }
+      `}
                 />
+              </div>
+
+              {/* Overlay with title */}
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h3 className="text-white text-lg md:text-xl font-semibold text-center px-2">
+                  {project.title}
+                </h3>
               </div>
             </div>
           );

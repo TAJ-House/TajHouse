@@ -36,7 +36,7 @@ export default function TestimonialsPage() {
   return (
     <div className="bg-gradient-to-br from-[#f7f9fc] to-white md:py-16 py-4 px-4 text-right">
       <div className="max-w-[1200px] md:flex md:flex-row flex-col  mx-auto">
-        <div className="flex items-start md:w-[40%] justify-between mb-10">
+        <div className="flex flex-col gap-4 items-start md:w-[40%] justify-between mb-10">
           <div className="flex justify-between gap-2 ">
             <div className="text-[#fff] md:h-[80px] h-[60px] w-[90px] text-center bg-[#2B00FF] rounded-full ">
               <span className="font-bold md:text-[40px] text-[30px]">,,</span>
@@ -46,6 +46,14 @@ export default function TestimonialsPage() {
               <h2 className="text-3xl font-bold">{t("title")}</h2>
               <p className="text-gray-600 mt-2 text-sm max-w-md">{t("sub")}</p>
             </div>
+          </div>
+          <div className="flex justify-center md:ms-20 items-center m-auto">
+            <video
+              className="rounded-2xl w-full max-w-[300px] md:h-[400px] object-cover shadow-lg hover:scale-105 transition-transform duration-300"
+              src="/assets/images/WhatsApp Video 2025-09-18 at 12.46.59.mp4"
+              controls
+              playsInline
+            />
           </div>
         </div>
 
