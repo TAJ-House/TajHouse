@@ -41,9 +41,12 @@ export default async function HomePage() {
         />
         <meta
           property="og:image"
-          content="/favicon.ico"
+          content="https://tajhouse.com/assets/logos/apple-touch-icon.png"
         />
-
+        <meta
+          property="og:image"
+          content="https://tajhouse.com/assets/logos/apple-touch-icon.png"
+        />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://tajhouse.com/" />

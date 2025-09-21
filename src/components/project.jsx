@@ -18,25 +18,29 @@ export default function ProjectsGallery() {
       id: 1,
       title: t("projectstilte.1"),
       category: t("categories.informational"),
-      image: "/assets/images/screencapture-tajhouse-luster-2025-09-18-23_04_45.png",
+      image:
+        "/assets/images/screencapture-tajhouse-luster-2025-09-18-23_04_45.png",
     },
     {
       id: 2,
       title: t("projectstilte.2"),
       category: t("categories.informational"),
-      image: "/assets/images/screencapture-tajhouse-nr-clinics-2025-09-18-23_04_18.png",
+      image:
+        "/assets/images/screencapture-tajhouse-nr-clinics-2025-09-18-23_04_18.png",
     },
     {
       id: 3,
       title: t("projectstilte.3"),
       category: t("categories.informational"),
-      image: "/assets/images/screencapture-tajhouse-pro-uniwrap-2025-09-18-23_01_06.png",
+      image:
+        "/assets/images/screencapture-tajhouse-pro-uniwrap-2025-09-18-23_01_06.png",
     },
     {
       id: 4,
       title: t("projectstilte.4"),
       category: t("categories.informational"),
-      image: "/assets/images/screencapture-tajhouse-pro-5degrees-2025-09-18-23_07_42.png",
+      image:
+        "/assets/images/screencapture-tajhouse-pro-5degrees-2025-09-18-23_07_42.png",
     },
     {
       id: 5,
@@ -48,7 +52,8 @@ export default function ProjectsGallery() {
       id: 6,
       title: t("projectstilte.6"),
       category: t("categories.informational"),
-      image: "/assets/images/screencapture-sitc-eg-org-en-homepage-3-2025-09-18-23_04_05.png",
+      image:
+        "/assets/images/screencapture-sitc-eg-org-en-homepage-3-2025-09-18-23_04_05.png",
     },
     {
       id: 7,
@@ -114,19 +119,67 @@ export default function ProjectsGallery() {
       id: 17,
       title: t("projectstilte.17"),
       category: t("categories.app"),
-      image: "/assets/images/WhatsApp Image 2025-09-18 at 13.00.28 (3).jpeg",
+      image: "/assets/images/2.png",
     },
     {
       id: 18,
       title: t("projectstilte.18"),
       category: t("categories.app"),
-      image: "/assets/images/WhatsApp Image 2025-09-18 at 13.00.28.jpeg",
+      image: "/assets/images/3.png",
     },
     {
       id: 19,
       title: t("projectstilte.19"),
       category: t("categories.app"),
-      image: "/assets/images/WhatsApp Image 2025-09-18 at 13.02.34.jpeg",
+      image: "/assets/images/1.png",
+    },
+    {
+      id: 20,
+      title: t("projectstilte.20"),
+      category: t("categories.app"),
+      image: "/assets/images/4.png",
+    },
+    {
+      id: 21,
+      title: t("projectstilte.21"),
+      category: t("categories.app"),
+      image: "/assets/images/5.png",
+    },
+    {
+      id: 22,
+      title: t("projectstilte.22"),
+      category: t("categories.informational"),
+      image: "/assets/images/project-1.avif",
+    },
+    {
+      id: 23,
+      title: t("projectstilte.23"),
+      category: t("categories.informational"),
+      image: "/assets/images/project-2.avif",
+    },
+    {
+      id: 24,
+      title: t("projectstilte.24"),
+      category: t("categories.informational"),
+      image: "/assets/images/project-3.avif",
+    },
+    {
+      id: 25,
+      title: t("projectstilte.25"),
+      category: t("categories.ecommerce"),
+      image: "/assets/images/project-4.avif",
+    },
+    {
+      id: 26,
+      title: t("projectstilte.26"),
+      category: t("categories.informational"),
+      image: "/assets/images/project-5.avif",
+    },
+    {
+      id: 27,
+      title: t("projectstilte.27"),
+      category: t("categories.informational"),
+      image: "/assets/images/project-6.avif",
     },
   ];
 
@@ -162,12 +215,12 @@ export default function ProjectsGallery() {
         <p className="text-start">{t("desc2")}</p>
       </div>
 
-      <div className="flex justify-center gap-4 my-10">
+      <div className="flex md:justify-center justify-around md:gap-4 gap-1 md:my-10 my-4 flex-wrap">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`md:px-4 px-2 py-2 md:text-lg text-xs hover:bg-[#2B00FF] hover:text-[#fff] cursor-pointer rounded font-semibold border transition-all duration-200 ${
+            className={`md:px-4 px-2 py-2 md:text-lg text-[11px] hover:bg-[#2B00FF] hover:text-[#fff] cursor-pointer rounded font-semibold border transition-all duration-200 ${
               selectedCategory === cat
                 ? "bg-[#2B00FF] text-white"
                 : "bg-white text-black border-gray-300"
@@ -187,7 +240,26 @@ export default function ProjectsGallery() {
               key={project.id}
               onClick={() => handleClick(project.id)}
               style={{ boxShadow: "0px 0px 5px 0px rgba(0, 0, 0, 0.5)" }}
-              className="overflow-hidden rounded-lg shadow-md group relative w-full md:h-[400px] h-[300px] cursor-pointer"
+              className={`overflow-hidden rounded-lg shadow-md group relative w-full  cursor-pointer
+                
+                  ${
+                    isActive
+                      ? project.id === 17 ||
+                        project.id === 18 ||
+                        project.id === 19 ||
+                        project.id === 20 ||
+                        project.id === 21
+                        ? "md:h-[250px] h-[100px]"
+                        : "md:h-[400px] h-[300px]"
+                      : project.id === 17 ||
+                        project.id === 18 ||
+                        project.id === 19 ||
+                        project.id === 20 ||
+                        project.id === 21
+                      ? "md:h-[250px] h-[130px]"
+                      : "md:h-[400px] h-[300px]"
+                  }
+                `}
             >
               <div className="w-full h-full overflow-hidden">
                 <Image
@@ -198,11 +270,19 @@ export default function ProjectsGallery() {
                   className={`w-full h-auto block object-cover transition-transform duration-[3000ms] ease-in-out
         ${
           isActive
-            ? project.id === 1
+            ? project.id === 17 ||
+              project.id === 18 ||
+              project.id === 19 ||
+              project.id === 20 ||
+              project.id === 21
               ? "translate-y-[-50px]"
               : "translate-y-[-150px]"
-            : project.id === 1
-            ? "group-hover:translate-y-[-100px]"
+            : project.id === 17 ||
+              project.id === 18 ||
+              project.id === 19 ||
+              project.id === 20 ||
+              project.id === 21
+            ? "group-hover:translate-y-[-0px]"
             : "group-hover:translate-y-[-300px]"
         }
       `}
