@@ -235,14 +235,6 @@ const Header = () => {
         </ul>
 
         <div className="flex flex-col w-full m-auto justify-center text-center gap-3">
-          <div>
-            <Link
-              href="/contact"
-              className="w-full p-4 bg-[#0000ff] text-white py-2 rounded-full mt-4 hover:bg-[#8700FF] transition shadow-sm text-sm"
-            >
-              {t("connectWithUs")}
-            </Link>
-          </div>
           <div className="flex text-center justify-center gap-6 text-lg">
             <a href="https://www.facebook.com/tajhouse2022" target="_blank">
               <FontAwesomeIcon icon={faFacebook} />
