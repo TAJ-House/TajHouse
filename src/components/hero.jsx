@@ -24,12 +24,14 @@ export default function hero() {
         >
           {heroTexts[3]}
         </Link>
-        <Link
-          href="/contact"
+        <a
+          href="https://tajhouse.com/luster"
+          target="_blank"
+          rel="noopener noreferrer"
           className=" cursor-pointer md:text-[16px] text-[12px]  font-bold md:block bg-[#0000ff] hover:bg-[#8700FF] text-white md:px-[45px] px-[20px] py-[6px]  rounded-[3px]  transition  font[600] shadow-sm"
         >
           {heroTexts[4]}
-        </Link>
+        </a>
       </div>
     </div>
   );

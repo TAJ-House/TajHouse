@@ -39,12 +39,12 @@ const Header = () => {
       <div className="md:max-w-[1200px] w-full rounded-sm md:h-[105px] h-[50px] p-4 bg-white z-[99] shadow-[0px_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300 mx-auto px-4 py-4 flex justify-between items-center">
         {/* CTA + Search */}
         <div className="flex items-center gap-3">
-          <Link
-            href="/contact"
+          <a
+            href="https://tajhouse.com/landingpage"
             className="hidden cursor-pointer md:block bg-[#0000ff] text-white px-5 py-3 rounded-sm hover:bg-[#8700FF] transition text-xs font[600] shadow-sm"
           >
             {t("connectWithUs")}
-          </Link>
+          </a>
           <button
             className="md:hidden text-2xl text-gray-700"
             onClick={() => setMobileMenuOpen(true)}
@@ -225,6 +225,9 @@ const Header = () => {
           </li>
           <li>
             <Link href="/blogs">{t("blogs")}</Link>
+          </li>
+          <li>
+            <Link href="/contact">{t("contact")}</Link>
           </li>
           <li>
             <Link href="/contact">{t("contact")}</Link>

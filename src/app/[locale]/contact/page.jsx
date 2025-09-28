@@ -6,8 +6,8 @@ export default function Contact() {
   return (
     <div className="overflow-hidden">
       <Nav />
-      <HeroContact />
       <ContactComp />
+      <HeroContact />
       <Footer />
     </div>
   );
