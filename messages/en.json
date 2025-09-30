@@ -266,6 +266,7 @@
     "contact": "Contact Us",
     "finalwork": "Final Work",
     "connectWithUs": "Request a quote",
+    "luster": "Marketing services",
     "serviceOptions": [
       "Website Development",
       "E-commerce Development",
@@ -294,7 +295,8 @@
       "Website design and development",
       "Mobile app design and development",
       "E-commerce development",
-      "Web programming"
+      "Web programming",
+      "Marketing services"
     ],
     "newsletterTitle": "Newsletter",
     "newsletterText": "Subscribe to our newsletter to get the latest updates...",

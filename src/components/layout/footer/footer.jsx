@@ -100,7 +100,17 @@ export default function NewsletterForm() {
           <ul className="space-y-2 text-start text-sm leading-6">
             {t.raw("services").map((item, i) => (
               <li key={i}>
-                <Link href="/services">{item}</Link>
+                {i === t.raw("services").length - 1 ? (
+                  <a
+                    href="https://tajhouse.com/luster"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item}
+                  </a>
+                ) : (
+                  <Link href="/services">{item}</Link>
+                )}
               </li>
             ))}
           </ul>

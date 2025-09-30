@@ -32,15 +32,21 @@ export default function hero() {
             {heroTexts[5]}
           </Link>
         </div>
-
-        <a
-          href="https://tajhouse.com/luster"
-          target="_blank"
-          rel="noopener noreferrer"
-          className=" cursor-pointer md:text-[16px] text-[12px]  font-bold md:block bg-[#0000ff] hover:bg-[#8700FF] text-white md:px-[45px] px-[20px] py-[6px]  rounded-[3px]  transition  font[600] shadow-sm"
-        >
-          {heroTexts[4]}
-        </a>
+        <div>
+          <a
+            href="https://tajhouse.com/luster"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" cursor-pointer bg-[#0000ff]  flex text-center md:text-[16px] font-bold text-[12px] items-center flex-row  gap-2   px-[20px] md:py-[1.5px] py-[0px] rounded-sm hover:bg-[#dc0d09] text-[#fff] transition  font[600] shadow-lg"
+          >
+            <img
+              src="/assets/images/cropped-52b7709ad276b2f8fcae9fa75255370f045aa349-e1757838916671.png"
+              width={30}
+              alt=""
+            />
+            {heroTexts[4]}
+          </a>
+        </div>
         <div className="hidden md:flex">
           <Link
             href="/contact"
