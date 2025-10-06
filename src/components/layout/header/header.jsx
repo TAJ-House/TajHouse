@@ -35,8 +35,8 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-full bg-[url('/assets/images/bg.avif')] md:min-h-[300px] md:pt-5 bg-cover bg-top bg-no-repeat z-50">
-      <div className="md:max-w-[1400px] w-full rounded-sm md:h-[105px] h-[50px] p-4 bg-white z-[99] shadow-[0px_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300 mx-auto px-4 py-4 flex justify-between items-center">
+    <header className="w-full    bg-cover bg-top bg-no-repeat z-50">
+      <div className="md:max-w-[100%] w-full rounded-sm md:h-[105px] fixed h-[50px] p-4 bg-white z-[99] shadow-[0px_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300 mx-auto px-4 py-4 flex justify-between items-center">
         {/* CTA + Search */}
         <div className="flex justify-center gap-2">
           <div className="flex items-center gap-3">
@@ -70,7 +70,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-10 items-center text-[15px] font-medium text-gray-800">
+        <nav className="hidden md:flex gap-8 items-center text-[15px] font-medium text-gray-800">
           <Link href="/" className="hover:text-[#8700FF] transition">
             {t("home")}
           </Link>
@@ -124,9 +124,9 @@ const Header = () => {
           <Link href="/client" className="hover:text-[#8700FF] transition">
             {t("client")}
           </Link>
-          <Link href="/projects" className="hover:text-[#8700FF] transition">
+          {/* <Link href="/projects" className="hover:text-[#8700FF] transition">
             {t("finalwork")}
-          </Link>
+          </Link> */}
           <Link href="/blogs" className="hover:text-[#8700FF] transition">
             {t("blogs")}
           </Link>
@@ -171,7 +171,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 w-72 h-full bg-white shadow-xl z-50 transform transition-transform duration-300 p-5 text-right flex flex-col ${
+        className={`fixed top-0 pt-20 right-0 w-72 h-full bg-white shadow-xl z-50 transform transition-transform duration-300 p-5 text-right flex flex-col ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -247,7 +247,13 @@ const Header = () => {
         </ul>
 
         <div className="flex flex-col w-full m-auto justify-center text-center gap-3">
-          <div className="flex w-full justify-center items-center gap-3">
+          <div className="flex w-full flex-col justify-center items-center gap-3">
+            <a
+              href="/contact"
+              className="cursor-pointer md:text-[16px] text-[12px]  font-bold md:block bg-[#0000ff] hover:bg-[#8700FF] text-white md:px-[45px] px-[30px] py-[8px]  rounded-[3px]  transition  font[600] shadow-sm"
+            >
+              {t("connectWithUs")}
+            </a>
             <a
               href="https://tajhouse.com/luster"
               className=" cursor-pointer flex text-center items-center flex-row flex-nowrap gap-2  text-black px-2 py-1 rounded-sm hover:bg-[#dc0d09] hover:text-[#fff] transition text-xs font[600] shadow-lg"

@@ -1,197 +1,52 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 export default function ProjectsGallery() {
   const t = useTranslations("HomePage.project");
 
-  const categories = [
-    // t("categories.all"),
-    t("categories.informational"),
-    t("categories.ecommerce"),
-    t("categories.app"),
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      title: t("projectstilte.1"),
-      category: t("categories.informational"),
-      image:
-        "/assets/images/screencapture-tajhouse-luster-2025-09-18-23_04_45.png",
-    },
-    {
-      id: 2,
-      title: t("projectstilte.2"),
-      category: t("categories.informational"),
-      image:
-        "/assets/images/screencapture-tajhouse-nr-clinics-2025-09-18-23_04_18.png",
-    },
-    {
-      id: 3,
-      title: t("projectstilte.3"),
-      category: t("categories.informational"),
-      image:
-        "/assets/images/screencapture-tajhouse-pro-uniwrap-2025-09-18-23_01_06.png",
-    },
-    {
-      id: 4,
-      title: t("projectstilte.4"),
-      category: t("categories.informational"),
-      image:
-        "/assets/images/screencapture-tajhouse-pro-5degrees-2025-09-18-23_07_42.png",
-    },
-    {
-      id: 5,
-      title: t("projectstilte.5"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/screencapture-ruya-eg-org-2025-09-18-23_03_53.png",
-    },
-    {
-      id: 6,
-      title: t("projectstilte.6"),
-      category: t("categories.informational"),
-      image:
-        "/assets/images/screencapture-sitc-eg-org-en-homepage-3-2025-09-18-23_04_05.png",
-    },
-    {
-      id: 7,
-      title: t("projectstilte.7"),
-      category: t("categories.informational"),
-      image: "/assets/images/project-7.avif",
-    },
-    {
-      id: 8,
-      title: t("projectstilte.8"),
-      category: t("categories.informational"),
-      image: "/assets/images/project-8.avif",
-    },
-    {
-      id: 9,
-      title: t("projectstilte.9"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-9.avif",
-    },
-    {
-      id: 10,
-      title: t("projectstilte.10"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-10.avif",
-    },
-    {
-      id: 11,
-      title: t("projectstilte.11"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-11.avif",
-    },
-    {
-      id: 12,
-      title: t("projectstilte.12"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-12.avif",
-    },
-    {
-      id: 13,
-      title: t("projectstilte.13"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-13.avif",
-    },
-    {
-      id: 14,
-      title: t("projectstilte.14"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-14.avif",
-    },
-    {
-      id: 15,
-      title: t("projectstilte.15"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-15.avif",
-    },
-    {
-      id: 16,
-      title: t("projectstilte.16"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-16.webp",
-    },
-    {
-      id: 17,
-      title: t("projectstilte.17"),
-      category: t("categories.app"),
-      image: "/assets/images/2.png",
-    },
-    {
-      id: 18,
-      title: t("projectstilte.18"),
-      category: t("categories.app"),
-      image: "/assets/images/3.png",
-    },
-    {
-      id: 19,
-      title: t("projectstilte.19"),
-      category: t("categories.app"),
-      image: "/assets/images/1.png",
-    },
-    {
-      id: 20,
-      title: t("projectstilte.20"),
-      category: t("categories.app"),
-      image: "/assets/images/4.png",
-    },
-    {
-      id: 21,
-      title: t("projectstilte.21"),
-      category: t("categories.app"),
-      image: "/assets/images/5.png",
-    },
-    {
-      id: 22,
-      title: t("projectstilte.22"),
-      category: t("categories.informational"),
-      image: "/assets/images/project-1.avif",
-    },
-    {
-      id: 23,
-      title: t("projectstilte.23"),
-      category: t("categories.informational"),
-      image: "/assets/images/project-2.avif",
-    },
-    {
-      id: 24,
-      title: t("projectstilte.24"),
-      category: t("categories.informational"),
-      image: "/assets/images/project-3.avif",
-    },
-    {
-      id: 25,
-      title: t("projectstilte.25"),
-      category: t("categories.ecommerce"),
-      image: "/assets/images/project-4.avif",
-    },
-    {
-      id: 26,
-      title: t("projectstilte.26"),
-      category: t("categories.informational"),
-      image: "/assets/images/project-5.avif",
-    },
-    {
-      id: 27,
-      title: t("projectstilte.27"),
-      category: t("categories.informational"),
-      image: "/assets/images/project-6.avif",
-    },
-  ];
-
-  const [selectedCategory, setSelectedCategory] = useState(
-    t("categories.informational")
-  );
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeProjectId, setActiveProjectId] = useState(null);
+  const [categories, setCategories] = useState([]);
+
+  const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000/api/v1";
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch(`${BASE_URL}/projects?lang=en`);
+        const data = await res.json();
+
+        if (data.success && Array.isArray(data.data)) {
+          setProjects(data.data);
+
+          const uniqueCategories = [
+            "All",
+            ...new Set(
+              data.data.map((proj) => proj.category?.name).filter(Boolean)
+            ),
+          ];
+          setCategories(uniqueCategories);
+        }
+      } catch (err) {
+        console.error("Error fetching projects:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   const filteredProjects =
-    selectedCategory === t("categories.informational")
-      ? projects.filter((p) => p.category === selectedCategory)
-      : projects.filter((p) => p.category === selectedCategory);
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category?.name === selectedCategory);
 
   const handleClick = (id) => {
     if (window.innerWidth < 768) {
@@ -199,8 +54,17 @@ export default function ProjectsGallery() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-[300px]">
+        {/* <p>{t("loading") || "Loading projects..."}</p> */}
+      </div>
+    );
+  }
+
   return (
     <section className="md:py-16 py-4 max-w-[1200px] m-auto px-4 text-right">
+      {/* ===== العناوين ===== */}
       <div className="grid md:grid-cols-3 grid-cols-1">
         <div className="flex w-full text-start md:-translate-y-8 flex-col gap-2">
           <p className="mb-2">{t("title")}</p>
@@ -215,6 +79,7 @@ export default function ProjectsGallery() {
         <p className="text-start">{t("desc2")}</p>
       </div>
 
+      {/* ===== الأزرار ===== */}
       <div className="flex md:justify-center justify-around md:gap-4 gap-1 md:my-10 my-4 flex-wrap">
         {categories.map((cat) => (
           <button
@@ -235,67 +100,44 @@ export default function ProjectsGallery() {
         {filteredProjects.map((project) => {
           const isActive = activeProjectId === project.id;
 
-          return (
-            <div
-              key={project.id}
-              onClick={() => handleClick(project.id)}
-              style={{ boxShadow: "0px 0px 5px 0px rgba(0, 0, 0, 0.5)" }}
-              className={`overflow-hidden rounded-lg shadow-md group relative w-full  cursor-pointer
-                
-                  ${
-                    isActive
-                      ? project.id === 17 ||
-                        project.id === 18 ||
-                        project.id === 19 ||
-                        project.id === 20 ||
-                        project.id === 21
-                        ? "md:h-[250px] h-[100px]"
-                        : "md:h-[400px] h-[300px]"
-                      : project.id === 17 ||
-                        project.id === 18 ||
-                        project.id === 19 ||
-                        project.id === 20 ||
-                        project.id === 21
-                      ? "md:h-[250px] h-[130px]"
-                      : "md:h-[400px] h-[300px]"
-                  }
-                `}
-            >
-              <div className="w-full h-full overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={1200}
-                  className={`w-full h-auto block object-cover transition-transform duration-[3000ms] ease-in-out
-        ${
-          isActive
-            ? project.id === 17 ||
-              project.id === 18 ||
-              project.id === 19 ||
-              project.id === 20 ||
-              project.id === 21
-              ? "translate-y-[-50px]"
-              : "translate-y-[-150px]"
-            : project.id === 17 ||
-              project.id === 18 ||
-              project.id === 19 ||
-              project.id === 20 ||
-              project.id === 21
-            ? "group-hover:translate-y-[-0px]"
-            : "group-hover:translate-y-[-300px]"
-        }
-      `}
-                />
-              </div>
 
-              {/* Overlay with title */}
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h3 className="text-white text-lg md:text-xl font-semibold text-center px-2">
-                  {project.title}
-                </h3>
+          const projectLink =
+            project.projectUrl && project.projectUrl.trim() !== ""
+              ? project.projectUrl
+              : "#";
+
+          return (
+            <Link
+              key={project.id}
+              href={projectLink}
+              target={projectLink === "#" ? "_self" : "_blank"}
+              rel="noopener noreferrer"
+            >
+              <div
+                onClick={() => handleClick(project.id)}
+                style={{ boxShadow: "0px 0px 5px 0px rgba(0, 0, 0, 0.5)" }}
+                className={`overflow-hidden rounded-lg shadow-md group relative w-full cursor-pointer ${
+                  isActive ? "md:h-[400px] h-[300px]" : "md:h-[400px] h-[300px]"
+                }`}
+              >
+                <div className="w-full h-full overflow-hidden">
+                  <Image
+                    src={`${BASE_URL.replace("/api/v1", "")}${project.image}`}
+                    alt={project.title}
+                    width={400}
+                    height={400}
+                    className="w-full h-auto block object-cover transition-transform duration-[3000ms] ease-in-out group-hover:translate-y-[-150px]"
+                  />
+                </div>
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <h3 className="text-white text-lg md:text-xl font-semibold text-center px-2">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

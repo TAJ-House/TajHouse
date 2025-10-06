@@ -6,7 +6,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslations } from "next-intl";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function ContactPage() {
   const t = useTranslations("HomePage.contact");
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://formspree.io/f/xdkdazde", {
+      const res = await fetch(`${BASE_URL}/contacts`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -74,8 +74,8 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          service: formData.service,
-          message: formData.notes,
+          requestedService: formData.service,
+          notes: formData.notes,
           phone: selectedCountry.dialCode + phone,
         }),
       });
@@ -139,15 +139,15 @@ export default function ContactPage() {
                 ))}
               </select>
 
-              <div className="flex w-full items-center border border-gray-300 rounded p-2">
+              <div className="flex w-full items-start text-start border border-gray-300 rounded p-2">
                 <input
                   type="tel"
-                  className="w-full outline-none text-start"
+                  className=" justify-start w-full items-start   outline-none text-start"
                   placeholder={t("placeholders.phone")}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
-                <span className="mr-2">{selectedCountry.dialCode}</span>
+                {/* <span className="mr-2">{selectedCountry.dialCode}</span> */}
               </div>
             </div>
 

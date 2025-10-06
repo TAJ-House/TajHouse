@@ -10,7 +10,7 @@ export default function heroContact() {
   const t = useTranslations("Contact");
   const heroTexts = t.raw("hero");
   return (
-    <div className=" w-full  relative bg-[#f5f9ff] py-16 m-auto  flex flex-col gap-1 justify-center items-center text-start">
+    <div className=" w-full   relative bg-[#f5f9ff] py-16 m-auto  flex flex-col gap-1 justify-center items-center text-start">
       <div className=" absolute h-[600px] !z-0   -translate-y-[106px] rtl:left-0 ltr:right-0 top-0 bg-[#8700ff] md:w-[400px] w-[15px]"></div>
       <div className="md:max-w-[1200px] flex md:flex-row  flex-col justify-between  ">
         {/* Side Text Section (Badge) */}
